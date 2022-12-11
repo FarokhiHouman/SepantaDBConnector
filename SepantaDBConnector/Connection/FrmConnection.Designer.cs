@@ -118,6 +118,7 @@
             this.btnDeleteConnection.TabIndex = 3;
             this.btnDeleteConnection.Text = "Delete connection";
             this.btnDeleteConnection.UseVisualStyleBackColor = true;
+            this.btnDeleteConnection.Click += new System.EventHandler(this.btnDeleteConnection_Click);
             // 
             // grpApps
             // 

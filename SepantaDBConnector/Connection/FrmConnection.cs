@@ -2,13 +2,13 @@
 public partial class FrmConnection : Form {
     private SqlConnectionStringBuilder _connectionStringBuilder;
     public FrmConnection() => InitializeComponent();
-    public string selectedCompany     { get; set; }
-    public string selectedApplication { get; set; }
+    public string SelectedCompany     { get; set; }
+    public string SelectedApplication { get; set; }
     private void FrmConnection_Load(object sender, EventArgs e) =>
         cmbCompany.DataSource = ClsRegEdit.GetAllCompanies();
     private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e) {
         cmbApplication.DataSource   = ClsRegEdit.GetAllApplication(companyName: cmbCompany.Text);
-        selectedCompany             = cmbCompany.Text;
+        SelectedCompany             = cmbCompany.Text;
         btnCreateConnection.Enabled = cmbApplication.SelectedIndex != -1;
     }
     private void btnCreateConnection_Click(object sender, EventArgs e) =>
@@ -69,8 +69,8 @@ public partial class FrmConnection : Form {
             }
             Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true).
                      OpenSubKey(name: Resources.reg_Sepanta, writable: true).
-                     OpenSubKey(name: selectedCompany,       writable: true).
-                     OpenSubKey(name: selectedApplication,   writable: true).
+                     OpenSubKey(name: SelectedCompany,       writable: true).
+                     OpenSubKey(name: SelectedApplication,   writable: true).
                      SetValue(name: Resources.reg_CentralConnection,
                               value: _connectionStringBuilder.ConnectionString
                              );
@@ -86,7 +86,52 @@ public partial class FrmConnection : Form {
         }
     }
     private void cmbApplication_SelectedIndexChanged(object sender, EventArgs e) {
-        selectedApplication = cmbApplication.Text;
-        if (ClsRegEdit.AppHasConnection(app: selectedApplication, company: selectedCompany)) { }
+        SelectedApplication = cmbApplication.Text;
+        SelectedCompany     = cmbCompany.Text;
+        if ((SelectedApplication == string.Empty) ||
+            (SelectedCompany     == string.Empty))
+            return;
+        if (!ClsRegEdit.AppHasConnection(app: SelectedApplication, company: SelectedCompany)) {
+            grpDataase.Enabled = grpLogin.Enabled =
+                                     grpDataSource.Enabled =
+                                         grpTestSaveBtn.Enabled =
+                                             btnDeleteConnection.Enabled = false;
+            btnCreateConnection.Enabled = true;
+        }
+        else {
+            grpDataase.Enabled = grpLogin.Enabled =
+                                     grpDataSource.Enabled =
+                                         grpTestSaveBtn.Enabled =
+                                             btnDeleteConnection.Enabled = true;
+            btnCreateConnection.Enabled = false;
+            _connectionStringBuilder = new() {
+                                                 ConnectionString =
+                                                     ClsRegEdit.
+                                                         GetConeectionString(app: SelectedApplication,
+                                                                             company:
+                                                                             SelectedCompany
+                                                                            )
+                                             };
+            cmbServerType.SelectedIndex = 0;
+            txtServerName.Text          = _connectionStringBuilder.DataSource;
+            rdbSqlAuth.Checked          = !_connectionStringBuilder.IntegratedSecurity;
+            rdbWindowsAuth.Checked      = _connectionStringBuilder.IntegratedSecurity;
+            txtDatabaseName.Text        = _connectionStringBuilder.InitialCatalog;
+            if (_connectionStringBuilder.IntegratedSecurity)
+                return;
+            txtSqlUsername.Text = _connectionStringBuilder.UserID;
+            txtSqlPassword.Text = _connectionStringBuilder.Password;
+        }
+    }
+    private void btnDeleteConnection_Click(object sender, EventArgs e) {
+        try {
+            ClsRegEdit.RemoveConnection(app: SelectedApplication, company: SelectedCompany);
+            FrmConnection_Load(sender: sender, e: e);
+        }
+        catch (Exception exception) {
+            MessageBox.Show(text: exception.Message, caption: "",
+                            buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning
+                           );
+        }
     }
 }

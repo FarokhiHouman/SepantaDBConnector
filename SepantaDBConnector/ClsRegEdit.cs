@@ -82,9 +82,32 @@ public static class ClsRegEdit {
                  OpenSubKey(name: selectedCompany,       writable: true).
                  OpenSubKey(name: selectedApplication,   writable: true).
                  GetValue(name: Resources.reg_Description).ToString();
-    public static bool AppHasConnection(string app, string company) =>
+    public static bool AppHasConnection(string app, string company) {
+        var values = Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true).
+                              OpenSubKey(name: Resources.reg_Sepanta, writable: true).
+                              OpenSubKey(name: company, writable: true).
+                              OpenSubKey(name: app, writable: true).GetValueNames();
+        foreach (var value in values)
+            if (value == Resources.reg_CentralConnection)
+                return true;
+        return false;
+    }
+    public static string GetConeectionString(string app, string company) =>
         Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true).
                  OpenSubKey(name: Resources.reg_Sepanta, writable: true).
                  OpenSubKey(name: company, writable: true).OpenSubKey(name: app, writable: true).
-                 GetValueNames().Any(predicate: value => value == Resources.reg_CentralConnection);
+                 GetValue(name: Resources.reg_CentralConnection).ToString();
+    public static bool RemoveConnection(string app, string company) {
+        try {
+            Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true).
+                     OpenSubKey(name: Resources.reg_Sepanta, writable: true).
+                     OpenSubKey(name: company,               writable: true).
+                     OpenSubKey(name: app,                   writable: true).
+                     DeleteValue(name: Resources.reg_CentralConnection);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
 }
