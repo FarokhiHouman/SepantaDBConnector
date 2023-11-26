@@ -1,25 +1,45 @@
-﻿namespace SepantaDBConnector;
-public partial class FrmMain : Form {
-    public FrmMain() => InitializeComponent();
-    private void companyToolStripMenuItem_Click(object sender, EventArgs e) {
-        FrmCompany frm = new();
-        frm.MdiParent = this;
-        frm.Show();
-    }
-    private void FrmMain_Load(object sender, EventArgs e) {
-        if (!ClsRegEdit.SepantaExist())
-            Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true)?.
-                     CreateSubKey(subkey: Resources.reg_Sepanta);
-    }
-    private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
-    private void applicationToolStripMenuItem_Click(object sender, EventArgs e) {
-        FrmApp frm = new();
-        frm.MdiParent = this;
-        frm.Show();
-    }
-    private void connectionToolStripMenuItem_Click(object sender, EventArgs e) {
-        FrmConnection frm = new();
-        frm.MdiParent = this;
-        frm.Show();
-    }
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
+
+
+namespace SepantaDBConnector;
+
+public partial class FrmMain : RibbonForm
+{
+#region Mthods
+#region Constractor
+	public FrmMain()
+	{
+		InitializeComponent();
+	}
+#endregion
+#region Other
+	private void btnCompany_ItemClick(object sender, ItemClickEventArgs e)
+	{
+		FrmCompany frm = new();
+		frm.MdiParent = this;
+		frm.Show();
+	}
+	private void btnApplication_ItemClick(object sender, ItemClickEventArgs e)
+	{
+		FrmApp frm = new();
+		frm.MdiParent = this;
+		frm.Show();
+	}
+	private void btnConnection_ItemClick(object sender, ItemClickEventArgs e)
+	{
+		FrmConnection frm = new();
+		frm.MdiParent = this;
+		frm.Show();
+	}
+	private void btnExit_ItemClick(object sender, ItemClickEventArgs e)
+	{
+		Close();
+	}
+	private void FrmMain2_Load(object sender, EventArgs e)
+	{
+		if (!ClsRegEdit.SepantaExist()) Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true)?.CreateSubKey(subkey: Resources.reg_Sepanta);
+	}
+#endregion
+#endregion
 }
