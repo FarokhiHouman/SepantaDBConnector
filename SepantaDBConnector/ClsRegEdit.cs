@@ -45,7 +45,7 @@ public static class ClsRegEdit
 		}
 		catch (Exception e)
 		{
-			MessageBox.Show(text: e.Message, caption: "Error");
+			MessageBox.Show(text: e.Message, caption: @"Error");
 			return null;
 		}
 	}
@@ -55,21 +55,18 @@ public static class ClsRegEdit
 	}
 	public static bool AddApplication(string companyName, string appName, string version, string desc)
 	{
-		if (!AppExist(appName: appName, companyName: companyName))
-		{
-			Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true)
-					.OpenSubKey(name: Resources.reg_Sepanta, writable: true)
-					.OpenSubKey(name: companyName,           writable: true)
-					.CreateSubKey(subkey: appName)
-					.SetValue(name: Resources.reg_Description, value: desc, valueKind: RegistryValueKind.String);
-			Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true)
-					.OpenSubKey(name: Resources.reg_Sepanta, writable: true)
-					.OpenSubKey(name: companyName,           writable: true)
-					.CreateSubKey(subkey: appName)
-					.SetValue(name: Resources.reg_Version, value: version, valueKind: RegistryValueKind.String);
-			return true;
-		}
-		return false;
+		if (AppExist(appName: appName, companyName: companyName)) return false;
+		Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true)
+				.OpenSubKey(name: Resources.reg_Sepanta, writable: true)
+				.OpenSubKey(name: companyName,           writable: true)
+				.CreateSubKey(subkey: appName)
+				.SetValue(name: Resources.reg_Description, value: desc, valueKind: RegistryValueKind.String);
+		Registry.CurrentUser.OpenSubKey(name: Resources.reg_Software, writable: true)
+				.OpenSubKey(name: Resources.reg_Sepanta, writable: true)
+				.OpenSubKey(name: companyName,           writable: true)
+				.CreateSubKey(subkey: appName)
+				.SetValue(name: Resources.reg_Version, value: version, valueKind: RegistryValueKind.String);
+		return true;
 	}
 	public static bool RemoveApplication(string selectedCompany, string selectedApplication)
 	{

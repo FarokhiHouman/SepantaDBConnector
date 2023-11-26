@@ -117,23 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Add</value>
+  <data name="reg_Software" xml:space="preserve">
+    <value>software</value>
   </data>
-  <data name="AreYouSure" xml:space="preserve">
-    <value>Are you sure?</value>
-  </data>
-  <data name="CantCreate" xml:space="preserve">
-    <value>Can not Create </value>
-  </data>
-  <data name="ConnectionNotSaved" xml:space="preserve">
-    <value>Saved Not Sucsessfully</value>
+  <data name="SepantaConnection" xml:space="preserve">
+    <value>Sepanta Connection</value>
   </data>
   <data name="ConnectionSaved" xml:space="preserve">
     <value>Saved Sucsessfully</value>
   </data>
+  <data name="NameEmpty" xml:space="preserve">
+    <value>The name of is empty.</value>
+  </data>
   <data name="Con_TestSucseeded" xml:space="preserve">
     <value>Test connection succeeded.</value>
+  </data>
+  <data name="reg_Sepanta" xml:space="preserve">
+    <value>sepanta</value>
+  </data>
+  <data name="reg_Description" xml:space="preserve">
+    <value>description</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>Created </value>
@@ -141,28 +147,26 @@
   <data name="CreatedSucces" xml:space="preserve">
     <value>Created Successfully.</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="NameEmpty" xml:space="preserve">
-    <value>The name of is empty.</value>
-  </data>
-  <data name="reg_CentralConnection" xml:space="preserve">
-    <value>CentralConnection</value>
-  </data>
-  <data name="reg_Description" xml:space="preserve">
-    <value>description</value>
-  </data>
-  <data name="reg_Sepanta" xml:space="preserve">
-    <value>sepanta</value>
-  </data>
-  <data name="reg_Software" xml:space="preserve">
-    <value>software</value>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="reg_Version" xml:space="preserve">
     <value>version</value>
   </data>
-  <data name="SepantaConnection" xml:space="preserve">
-    <value>Sepanta Connection</value>
+  <data name="ConnectionNotSaved" xml:space="preserve">
+    <value>Saved Not Sucsessfully</value>
+  </data>
+  <data name="CantCreate" xml:space="preserve">
+    <value>Can not Create </value>
+  </data>
+  <data name="reg_CentralConnection" xml:space="preserve">
+    <value>CentralConnection</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SepantaDBConnector" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\SepantaDBConnector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

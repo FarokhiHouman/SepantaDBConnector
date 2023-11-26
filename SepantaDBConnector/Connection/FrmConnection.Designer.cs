@@ -28,12 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.cmbCompany = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.cmbApplication = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.btnCreateConnection = new System.Windows.Forms.Button();
-			this.btnDeleteConnection = new System.Windows.Forms.Button();
 			this.grpApps = new System.Windows.Forms.GroupBox();
 			this.grpDataSource = new System.Windows.Forms.GroupBox();
 			this.txtServerName = new System.Windows.Forms.TextBox();
@@ -53,22 +49,16 @@
 			this.btnTestConnection = new System.Windows.Forms.Button();
 			this.btnSaveConnection = new System.Windows.Forms.Button();
 			this.grpTestSaveBtn = new System.Windows.Forms.GroupBox();
+			this.btnCreateConnection = new DevExpress.XtraEditors.SimpleButton();
+			this.btnDeleteConnection = new DevExpress.XtraEditors.SimpleButton();
+			this.cmbCompany = new System.Windows.Forms.ComboBox();
+			this.cmbApplication = new System.Windows.Forms.ComboBox();
 			this.grpApps.SuspendLayout();
 			this.grpDataSource.SuspendLayout();
 			this.grpLogin.SuspendLayout();
 			this.grpDataase.SuspendLayout();
 			this.grpTestSaveBtn.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// cmbCompany
-			// 
-			this.cmbCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbCompany.FormattingEnabled = true;
-			this.cmbCompany.Location = new System.Drawing.Point(102, 19);
-			this.cmbCompany.Name = "cmbCompany";
-			this.cmbCompany.Size = new System.Drawing.Size(220, 21);
-			this.cmbCompany.TabIndex = 0;
-			this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.cmbCompany_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -79,16 +69,6 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "Company :";
 			// 
-			// cmbApplication
-			// 
-			this.cmbApplication.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbApplication.FormattingEnabled = true;
-			this.cmbApplication.Location = new System.Drawing.Point(102, 46);
-			this.cmbApplication.Name = "cmbApplication";
-			this.cmbApplication.Size = new System.Drawing.Size(220, 21);
-			this.cmbApplication.TabIndex = 1;
-			this.cmbApplication.SelectedIndexChanged += new System.EventHandler(this.cmbApplication_SelectedIndexChanged);
-			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
@@ -98,40 +78,18 @@
 			this.label2.TabIndex = 1;
 			this.label2.Text = "Application :";
 			// 
-			// btnCreateConnection
-			// 
-			this.btnCreateConnection.Enabled = false;
-			this.btnCreateConnection.Location = new System.Drawing.Point(102, 73);
-			this.btnCreateConnection.Name = "btnCreateConnection";
-			this.btnCreateConnection.Size = new System.Drawing.Size(107, 23);
-			this.btnCreateConnection.TabIndex = 2;
-			this.btnCreateConnection.Text = "Create connection";
-			this.btnCreateConnection.UseVisualStyleBackColor = true;
-			this.btnCreateConnection.Click += new System.EventHandler(this.btnCreateConnection_Click);
-			// 
-			// btnDeleteConnection
-			// 
-			this.btnDeleteConnection.Enabled = false;
-			this.btnDeleteConnection.Location = new System.Drawing.Point(215, 73);
-			this.btnDeleteConnection.Name = "btnDeleteConnection";
-			this.btnDeleteConnection.Size = new System.Drawing.Size(107, 23);
-			this.btnDeleteConnection.TabIndex = 3;
-			this.btnDeleteConnection.Text = "Delete connection";
-			this.btnDeleteConnection.UseVisualStyleBackColor = true;
-			this.btnDeleteConnection.Click += new System.EventHandler(this.btnDeleteConnection_Click);
-			// 
 			// grpApps
 			// 
-			this.grpApps.Controls.Add(this.cmbCompany);
-			this.grpApps.Controls.Add(this.btnCreateConnection);
-			this.grpApps.Controls.Add(this.btnDeleteConnection);
 			this.grpApps.Controls.Add(this.cmbApplication);
+			this.grpApps.Controls.Add(this.cmbCompany);
+			this.grpApps.Controls.Add(this.btnDeleteConnection);
+			this.grpApps.Controls.Add(this.btnCreateConnection);
 			this.grpApps.Controls.Add(this.label1);
 			this.grpApps.Controls.Add(this.label2);
 			this.grpApps.Dock = System.Windows.Forms.DockStyle.Top;
 			this.grpApps.Location = new System.Drawing.Point(0, 0);
 			this.grpApps.Name = "grpApps";
-			this.grpApps.Size = new System.Drawing.Size(385, 110);
+			this.grpApps.Size = new System.Drawing.Size(394, 110);
 			this.grpApps.TabIndex = 0;
 			this.grpApps.TabStop = false;
 			// 
@@ -145,7 +103,7 @@
 			this.grpDataSource.Enabled = false;
 			this.grpDataSource.Location = new System.Drawing.Point(0, 110);
 			this.grpDataSource.Name = "grpDataSource";
-			this.grpDataSource.Size = new System.Drawing.Size(385, 80);
+			this.grpDataSource.Size = new System.Drawing.Size(394, 80);
 			this.grpDataSource.TabIndex = 1;
 			this.grpDataSource.TabStop = false;
 			this.grpDataSource.Text = "Data Source";
@@ -200,7 +158,7 @@
 			this.grpLogin.Enabled = false;
 			this.grpLogin.Location = new System.Drawing.Point(0, 190);
 			this.grpLogin.Name = "grpLogin";
-			this.grpLogin.Size = new System.Drawing.Size(385, 140);
+			this.grpLogin.Size = new System.Drawing.Size(394, 140);
 			this.grpLogin.TabIndex = 2;
 			this.grpLogin.TabStop = false;
 			this.grpLogin.Text = "Login";
@@ -272,7 +230,7 @@
 			this.grpDataase.Enabled = false;
 			this.grpDataase.Location = new System.Drawing.Point(0, 330);
 			this.grpDataase.Name = "grpDataase";
-			this.grpDataase.Size = new System.Drawing.Size(385, 84);
+			this.grpDataase.Size = new System.Drawing.Size(394, 84);
 			this.grpDataase.TabIndex = 3;
 			this.grpDataase.TabStop = false;
 			this.grpDataase.Text = "Connect to database";
@@ -323,15 +281,51 @@
 			this.grpTestSaveBtn.Enabled = false;
 			this.grpTestSaveBtn.Location = new System.Drawing.Point(0, 414);
 			this.grpTestSaveBtn.Name = "grpTestSaveBtn";
-			this.grpTestSaveBtn.Size = new System.Drawing.Size(385, 57);
+			this.grpTestSaveBtn.Size = new System.Drawing.Size(394, 57);
 			this.grpTestSaveBtn.TabIndex = 4;
 			this.grpTestSaveBtn.TabStop = false;
+			// 
+			// btnCreateConnection
+			// 
+			this.btnCreateConnection.Location = new System.Drawing.Point(104, 73);
+			this.btnCreateConnection.Name = "btnCreateConnection";
+			this.btnCreateConnection.Size = new System.Drawing.Size(107, 23);
+			this.btnCreateConnection.TabIndex = 6;
+			this.btnCreateConnection.Text = "Create connection";
+			this.btnCreateConnection.Click += new System.EventHandler(this.btnCreateConnection_Click);
+			// 
+			// btnDeleteConnection
+			// 
+			this.btnDeleteConnection.Location = new System.Drawing.Point(217, 73);
+			this.btnDeleteConnection.Name = "btnDeleteConnection";
+			this.btnDeleteConnection.Size = new System.Drawing.Size(107, 23);
+			this.btnDeleteConnection.TabIndex = 7;
+			this.btnDeleteConnection.Text = "Delete connection";
+			this.btnDeleteConnection.Click += new System.EventHandler(this.btnDeleteConnection_Click);
+			// 
+			// cmbCompany
+			// 
+			this.cmbCompany.FormattingEnabled = true;
+			this.cmbCompany.Location = new System.Drawing.Point(104, 20);
+			this.cmbCompany.Name = "cmbCompany";
+			this.cmbCompany.Size = new System.Drawing.Size(218, 21);
+			this.cmbCompany.TabIndex = 8;
+			this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.cmbCompany_SelectedIndexChanged);
+			// 
+			// cmbApplication
+			// 
+			this.cmbApplication.FormattingEnabled = true;
+			this.cmbApplication.Location = new System.Drawing.Point(104, 46);
+			this.cmbApplication.Name = "cmbApplication";
+			this.cmbApplication.Size = new System.Drawing.Size(218, 21);
+			this.cmbApplication.TabIndex = 9;
+			this.cmbApplication.SelectedIndexChanged += new System.EventHandler(this.cmbApplication_SelectedIndexChanged);
 			// 
 			// FrmConnection
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(385, 471);
+			this.ClientSize = new System.Drawing.Size(394, 471);
 			this.Controls.Add(this.grpTestSaveBtn);
 			this.Controls.Add(this.grpDataase);
 			this.Controls.Add(this.grpLogin);
@@ -356,13 +350,8 @@
         }
 
         #endregion
-
-        private ComboBox cmbCompany;
         private Label label1;
-        private ComboBox cmbApplication;
         private Label label2;
-        private Button btnCreateConnection;
-        private Button btnDeleteConnection;
         private GroupBox grpApps;
         private GroupBox grpDataSource;
         private TextBox txtServerName;
@@ -382,5 +371,9 @@
         private Button btnTestConnection;
         private Button btnSaveConnection;
         private GroupBox grpTestSaveBtn;
-    }
+		private DevExpress.XtraEditors.SimpleButton btnCreateConnection;
+		private DevExpress.XtraEditors.SimpleButton btnDeleteConnection;
+		private ComboBox cmbCompany;
+		private ComboBox cmbApplication;
+	}
 }

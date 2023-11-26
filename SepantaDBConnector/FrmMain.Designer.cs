@@ -134,6 +134,7 @@
 			this.Controls.Add(this.ribbonStatusBar1);
 			this.Controls.Add(this.ribbonControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.IconOptions.Image = global::SepantaDBConnector.Properties.Resources.SepantaDBConnector;
 			this.IsMdiContainer = true;
 			this.MaximizeBox = false;
 			this.Name = "FrmMain";

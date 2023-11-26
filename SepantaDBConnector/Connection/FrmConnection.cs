@@ -60,8 +60,7 @@ public partial class FrmConnection : XtraForm
 	}
 	private void btnTestConnection_Click(object sender, EventArgs e)
 	{
-		_connectionStringBuilder            = new();
-		_connectionStringBuilder.DataSource = txtServerName.Text;
+		_connectionStringBuilder = new() { DataSource = txtServerName.Text };
 		if (rdbSqlAuth.Checked)
 		{
 			_connectionStringBuilder.IntegratedSecurity = false;
@@ -91,8 +90,7 @@ public partial class FrmConnection : XtraForm
 	{
 		try
 		{
-			_connectionStringBuilder            = new();
-			_connectionStringBuilder.DataSource = txtServerName.Text;
+			_connectionStringBuilder = new() { DataSource = txtServerName.Text };
 			if (rdbSqlAuth.Checked)
 			{
 				_connectionStringBuilder.IntegratedSecurity = false;

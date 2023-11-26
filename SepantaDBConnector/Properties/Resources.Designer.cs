@@ -203,5 +203,15 @@ namespace SepantaDBConnector.Properties {
                 return ResourceManager.GetString("SepantaConnection", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SepantaDBConnector {
+            get {
+                object obj = ResourceManager.GetObject("SepantaDBConnector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
