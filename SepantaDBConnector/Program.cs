@@ -1,9 +1,7 @@
 ﻿namespace SepantaDBConnector;
 
-internal static class Program
+static class Program
 {
-#region Mthods
-#region Other
 	/// <summary>
 	///     The main entry point for the application.
 	/// </summary>
@@ -14,6 +12,4 @@ internal static class Program
 		Application.SetCompatibleTextRenderingDefault(defaultValue: false);
 		Application.Run(mainForm: new FrmMain());
 	}
-#endregion
-#endregion
 }
